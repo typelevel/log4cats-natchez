@@ -7,6 +7,7 @@ ThisBuild / developers := List(
   tlGitHubDev("bpholt", "Brian Holt"),
 )
 ThisBuild / tlSonatypeUseLegacyHost := false
+ThisBuild / tlCiReleaseBranches := Seq("main")
 
 val Scala213 = "2.13.10"
 val Scala212 = "2.12.17"
@@ -29,11 +30,29 @@ ThisBuild / mergifyPrRules += MergifyPrRule(
   )
 )
 
-lazy val root = tlCrossRootProject.aggregate(core)
+lazy val root = tlCrossRootProject.aggregate(`log4cats-natchez-backend`)
 
-lazy val core = crossProject(JVMPlatform, JSPlatform, NativePlatform)
-  .crossType(CrossType.Pure)
+lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, NativePlatform)
+  .crossType(CrossType.Full)
   .in(file("core"))
   .settings(
     name := "log4cats-natchez",
+    libraryDependencies ++= Seq(
+      "org.typelevel" %%% "log4cats-core" % "2.5.0",
+      "org.tpolecat" %%% "natchez-core" % "0.2.2",
+    ),
+  )
+  .jvmSettings(
+    libraryDependencies ++= Seq(
+      "org.tpolecat" %%% "natchez-opentelemetry" % "0.2.2" % Test,
+      "io.opentelemetry" % "opentelemetry-api" % "1.21.0" % Test,
+      "io.opentelemetry" % "opentelemetry-context" % "1.21.0" % Test,
+      "io.opentelemetry" % "opentelemetry-exporter-otlp" % "1.21.0" % Test,
+      "io.opentelemetry" % "opentelemetry-exporter-logging" % "1.21.0" % Test,
+      "io.opentelemetry" % "opentelemetry-extension-trace-propagators" % "1.21.0" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk" % "1.20.1" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk-common" % "1.21.0" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk-trace" % "1.21.0" % Test,
+      "io.opentelemetry" % "opentelemetry-semconv" % "1.21.0-alpha" % Test,
+    )
   )
