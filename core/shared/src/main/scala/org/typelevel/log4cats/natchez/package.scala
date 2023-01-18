@@ -22,7 +22,7 @@ package object natchez {
     override def fromName(name: String): F[SelfAwareStructuredLogger[F]] = getLoggerFromName(name).pure[F]
   }
 
-  implicit def traceLogger[F[_] : Trace : Applicative]: StructuredLogger[F] = new TraceLogger[F]
+  implicit def traceLogger[F[_] : Trace]: StructuredLogger[F] = new TraceLogger[F]
 }
 
 package natchez {
@@ -59,10 +59,10 @@ package natchez {
     }
 
     private[TraceLogger] val mapContextToTraceValue: Map[String, String] => List[(String, TraceValue)] =
-      _.toList.nested.map(TraceValue.StringValue.apply).value
+      _.toList.nested.map(TraceableValue[String].toTraceValue).value
   }
 
-  class TraceLogger[F[_] : Trace : Applicative] extends StructuredLogger[F] {
+  class TraceLogger[F[_] : Trace] extends StructuredLogger[F] {
     private def log(logLevel: LogLevel,
                     ctx: Map[String, String],
                     maybeThrowable: Option[Throwable],
@@ -73,7 +73,7 @@ package natchez {
           "severity_text" -> logLevelToSeverityText(logLevel) ::
           mapContextToTraceValue(ctx)
 
-      Trace[F].log(attributes: _*) *> maybeThrowable.fold(().pure[F])(Trace[F].attachError)
+      maybeThrowable.fold(Trace[F].log(attributes: _*))(Trace[F].attachError(_, attributes: _*))
     }
 
     override def trace(ctx: Map[String, String])(msg: => String): F[Unit] = log(LogLevel.Trace, ctx, None, msg)
