@@ -19,7 +19,7 @@ ThisBuild / githubWorkflowScalaVersions := Seq("2.13", "2.12", "3")
 ThisBuild / tlJdkRelease := Some(8)
 
 ThisBuild / mergifyStewardConfig ~= {
-  _.map(_.copy(mergeMinors = true, author = "typelevel-steward[bot]"))
+  _.map(_.copy(mergeMinors = true, author = "typelevel-steward[bot]", action = MergifyAction.Merge(method = Option("squash"))))
 }
 ThisBuild / mergifySuccessConditions += MergifyCondition.Custom("#approved-reviews-by>=1")
 ThisBuild / mergifyPrRules += MergifyPrRule(
