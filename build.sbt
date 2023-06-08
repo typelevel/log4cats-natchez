@@ -9,7 +9,7 @@ ThisBuild / developers := List(
 ThisBuild / tlSonatypeUseLegacyHost := false
 ThisBuild / tlCiReleaseBranches := Seq("main")
 
-val Scala213 = "2.13.10"
+val Scala213 = "2.13.11"
 val Scala212 = "2.12.17"
 val Scala3 = "3.2.2"
 ThisBuild / crossScalaVersions := Seq(Scala213, Scala212, Scala3)
@@ -39,12 +39,12 @@ lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, Nati
     name := "log4cats-natchez",
     libraryDependencies ++= Seq(
       "org.typelevel" %%% "log4cats-core" % "2.6.0",
-      "org.tpolecat" %%% "natchez-core" % "0.3.1",
+      "org.tpolecat" %%% "natchez-core" % "0.3.2",
     ),
   )
   .jvmSettings(
     libraryDependencies ++= Seq(
-      "org.tpolecat" %%% "natchez-opentelemetry" % "0.3.1" % Test,
+      "org.tpolecat" %%% "natchez-opentelemetry" % "0.3.2" % Test,
       "io.opentelemetry" % "opentelemetry-api" % "1.26.0" % Test,
       "io.opentelemetry" % "opentelemetry-context" % "1.26.0" % Test,
       "io.opentelemetry" % "opentelemetry-exporter-otlp" % "1.26.0" % Test,
