@@ -49,14 +49,14 @@ lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, Nati
   .jvmSettings(
     libraryDependencies ++= Seq(
       "org.tpolecat" %%% "natchez-opentelemetry" % "0.3.5" % Test,
-      "io.opentelemetry" % "opentelemetry-api" % "1.39.0" % Test,
-      "io.opentelemetry" % "opentelemetry-context" % "1.39.0" % Test,
-      "io.opentelemetry" % "opentelemetry-exporter-otlp" % "1.39.0" % Test,
-      "io.opentelemetry" % "opentelemetry-exporter-logging" % "1.39.0" % Test,
-      "io.opentelemetry" % "opentelemetry-extension-trace-propagators" % "1.39.0" % Test,
-      "io.opentelemetry" % "opentelemetry-sdk" % "1.39.0" % Test,
-      "io.opentelemetry" % "opentelemetry-sdk-common" % "1.39.0" % Test,
-      "io.opentelemetry" % "opentelemetry-sdk-trace" % "1.39.0" % Test,
+      "io.opentelemetry" % "opentelemetry-api" % "1.41.0" % Test,
+      "io.opentelemetry" % "opentelemetry-context" % "1.41.0" % Test,
+      "io.opentelemetry" % "opentelemetry-exporter-otlp" % "1.41.0" % Test,
+      "io.opentelemetry" % "opentelemetry-exporter-logging" % "1.41.0" % Test,
+      "io.opentelemetry" % "opentelemetry-extension-trace-propagators" % "1.41.0" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk" % "1.41.0" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk-common" % "1.41.0" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk-trace" % "1.41.0" % Test,
       "io.opentelemetry" % "opentelemetry-semconv" % "1.27.0-alpha" % Test,
     )
   )
