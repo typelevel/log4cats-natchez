@@ -9,7 +9,7 @@ ThisBuild / developers := List(
 ThisBuild / tlSonatypeUseLegacyHost := false
 ThisBuild / tlCiReleaseBranches := Seq("main")
 
-val Scala213 = "2.13.15"
+val Scala213 = "2.13.16"
 val Scala212 = "2.12.20"
 val Scala3 = "3.3.4"
 ThisBuild / crossScalaVersions := Seq(Scala213, Scala212, Scala3)
