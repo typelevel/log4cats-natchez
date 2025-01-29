@@ -9,7 +9,7 @@ ThisBuild / developers := List(
 ThisBuild / tlSonatypeUseLegacyHost := false
 ThisBuild / tlCiReleaseBranches := Seq("main")
 
-val Scala213 = "2.13.15"
+val Scala213 = "2.13.16"
 val Scala212 = "2.12.20"
 val Scala3 = "3.3.4"
 ThisBuild / crossScalaVersions := Seq(Scala213, Scala212, Scala3)
@@ -49,14 +49,14 @@ lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, Nati
   .jvmSettings(
     libraryDependencies ++= Seq(
       "org.tpolecat" %%% "natchez-opentelemetry" % "0.3.7" % Test,
-      "io.opentelemetry" % "opentelemetry-api" % "1.43.0" % Test,
-      "io.opentelemetry" % "opentelemetry-context" % "1.43.0" % Test,
-      "io.opentelemetry" % "opentelemetry-exporter-otlp" % "1.43.0" % Test,
-      "io.opentelemetry" % "opentelemetry-exporter-logging" % "1.43.0" % Test,
-      "io.opentelemetry" % "opentelemetry-extension-trace-propagators" % "1.43.0" % Test,
-      "io.opentelemetry" % "opentelemetry-sdk" % "1.43.0" % Test,
-      "io.opentelemetry" % "opentelemetry-sdk-common" % "1.43.0" % Test,
-      "io.opentelemetry" % "opentelemetry-sdk-trace" % "1.43.0" % Test,
+      "io.opentelemetry" % "opentelemetry-api" % "1.46.0" % Test,
+      "io.opentelemetry" % "opentelemetry-context" % "1.46.0" % Test,
+      "io.opentelemetry" % "opentelemetry-exporter-otlp" % "1.46.0" % Test,
+      "io.opentelemetry" % "opentelemetry-exporter-logging" % "1.46.0" % Test,
+      "io.opentelemetry" % "opentelemetry-extension-trace-propagators" % "1.46.0" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk" % "1.46.0" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk-common" % "1.46.0" % Test,
+      "io.opentelemetry" % "opentelemetry-sdk-trace" % "1.46.0" % Test,
       "io.opentelemetry" % "opentelemetry-semconv" % "1.27.0-alpha" % Test,
     )
   )
