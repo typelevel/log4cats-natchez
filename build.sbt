@@ -11,7 +11,7 @@ ThisBuild / tlCiReleaseBranches := Seq("main")
 
 val Scala213 = "2.13.16"
 val Scala212 = "2.12.20"
-val Scala3 = "3.3.4"
+val Scala3 = "3.3.5"
 ThisBuild / crossScalaVersions := Seq(Scala213, Scala212, Scala3)
 ThisBuild / scalaVersion := Scala213 // the default Scala
 ThisBuild / githubWorkflowJavaVersions := Seq(JavaSpec.temurin("17"))
