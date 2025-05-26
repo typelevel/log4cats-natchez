@@ -42,7 +42,7 @@ lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, Nati
   .settings(
     name := "log4cats-natchez",
     libraryDependencies ++= Seq(
-      "org.typelevel" %%% "log4cats-core" % "2.7.0",
+      "org.typelevel" %%% "log4cats-core" % "2.7.1",
       "org.tpolecat" %%% "natchez-core" % "0.3.8",
     ),
   )
