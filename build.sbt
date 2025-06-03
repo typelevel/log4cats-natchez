@@ -6,7 +6,6 @@ ThisBuild / licenses := Seq(License.Apache2)
 ThisBuild / developers := List(
   tlGitHubDev("bpholt", "Brian Holt"),
 )
-ThisBuild / tlSonatypeUseLegacyHost := false
 ThisBuild / tlCiReleaseBranches := Seq("main")
 
 val Scala213 = "2.13.16"
