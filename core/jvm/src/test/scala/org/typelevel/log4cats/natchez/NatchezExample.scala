@@ -1,19 +1,19 @@
 package org.typelevel.log4cats.natchez
 
-import cats._
+import cats.*
 import cats.data.Kleisli
-import cats.effect.{Trace => _, _}
-import cats.syntax.all._
+import cats.effect.{Trace as _, *}
+import cats.syntax.all.*
 import io.opentelemetry.api.common.Attributes
 import io.opentelemetry.exporter.logging.LoggingSpanExporter
 import io.opentelemetry.exporter.otlp.trace.OtlpGrpcSpanExporter
-import io.opentelemetry.sdk.resources.{Resource => OTResource}
+import io.opentelemetry.sdk.resources.Resource as OTResource
 import io.opentelemetry.sdk.trace.SdkTracerProvider
 import io.opentelemetry.sdk.trace.`export`.{BatchSpanProcessor, SimpleSpanProcessor}
-import io.opentelemetry.semconv.resource.attributes.ResourceAttributes
-import natchez._
-import natchez.opentelemetry._
-import org.typelevel.log4cats._
+import io.opentelemetry.semconv.ServiceAttributes
+import natchez.*
+import natchez.opentelemetry.*
+import org.typelevel.log4cats.*
 
 import scala.util.control.NoStackTrace
 
@@ -35,7 +35,7 @@ object NatchezExample extends IOApp.Simple {
                 OTResource
                   .getDefault
                   .merge(OTResource.create(Attributes.of(
-                    ResourceAttributes.SERVICE_NAME, "NatchezExample",
+                    ServiceAttributes.SERVICE_NAME, "NatchezExample",
                   )))
               }
               .addSpanProcessor(SimpleSpanProcessor.create(LoggingSpanExporter.create))
