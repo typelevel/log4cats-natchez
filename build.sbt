@@ -56,7 +56,7 @@ lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, Nati
       "io.opentelemetry" % "opentelemetry-sdk" % "1.53.0" % Test,
       "io.opentelemetry" % "opentelemetry-sdk-common" % "1.53.0" % Test,
       "io.opentelemetry" % "opentelemetry-sdk-trace" % "1.53.0" % Test,
-      "io.opentelemetry.semconv" % "opentelemetry-semconv" % "1.34.0" % Test,
+      "io.opentelemetry.semconv" % "opentelemetry-semconv" % "1.37.0" % Test,
       "io.opentelemetry.semconv" % "opentelemetry-semconv-incubating" % "1.34.0-alpha" % Test,
     )
   )
