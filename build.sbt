@@ -8,8 +8,8 @@ ThisBuild / developers := List(
 )
 ThisBuild / tlCiReleaseBranches := Seq("main")
 
-val Scala213 = "2.13.17"
-val Scala212 = "2.12.20"
+val Scala213 = "2.13.18"
+val Scala212 = "2.12.21"
 val Scala3 = "3.3.7"
 ThisBuild / crossScalaVersions := Seq(Scala213, Scala212, Scala3)
 ThisBuild / scalaVersion := Scala213 // the default Scala
@@ -70,12 +70,12 @@ lazy val `log4cats-natchez-trace-context` = crossProject(JVMPlatform, JSPlatform
   .settings(
     name := "log4cats-natchez-trace-context",
     libraryDependencies ++= Seq(
-      "org.typelevel" %%% "log4cats-core" % "2.7.1",
+      "org.typelevel" %%% "log4cats-core" % "2.7.1-52-d1e4e6a-SNAPSHOT",
       "org.tpolecat" %%% "natchez-core" % "0.3.8",
       "org.scalameta" %%% "munit" % "1.2.1" % Test,
       "org.typelevel" %%% "munit-cats-effect" % "2.1.0" % Test,
       "org.scalameta" %%% "munit-scalacheck" % "1.2.0" % Test,
-      "org.typelevel" %%% "log4cats-testing" % "2.7.1" % Test,
+      "org.typelevel" %%% "log4cats-testing" % "2.7.1-52-d1e4e6a-SNAPSHOT" % Test,
       "org.typelevel" %%% "scalacheck-effect" % "2.1.0-RC1" % Test,
       "org.typelevel" %%% "scalacheck-effect-munit" % "2.1.0-RC1" % Test,
     ),

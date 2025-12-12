@@ -3,7 +3,7 @@ package org.typelevel.log4cats.natchez
 import cats.*
 import cats.effect.{IO, Resource}
 import cats.syntax.all.*
-import munit.{CatsEffectSuite, ScalaCheckSuite}
+import munit.{CatsEffectSuite, ScalaCheckEffectSuite}
 import natchez.{Kernel, Span, Trace, TraceValue}
 import org.scalacheck.Arbitrary.arbitrary
 import org.scalacheck.effect.PropF
@@ -13,7 +13,7 @@ import org.typelevel.log4cats.testing.StructuredTestingLogger.*
 
 import java.net.URI
 
-class TraceContextLoggerSpec extends CatsEffectSuite with ScalaCheckSuite {
+class TraceContextLoggerSpec extends CatsEffectSuite with ScalaCheckEffectSuite {
 
   private val genLogMessage: Gen[LogMessage] =
     for {
