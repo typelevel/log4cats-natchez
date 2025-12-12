@@ -33,6 +33,14 @@ pull_request_rules:
       add:
       - core
       remove: []
+- name: Label trace-context PRs
+  conditions:
+  - files~=^trace-context/
+  actions:
+    label:
+      add:
+      - trace-context
+      remove: []
 - name: assign scala-steward's PRs for review
   conditions:
   - author=typelevel-steward[bot]

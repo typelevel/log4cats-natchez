@@ -33,7 +33,10 @@ ThisBuild / mergifyPrRules += MergifyPrRule(
   )
 )
 
-lazy val root = tlCrossRootProject.aggregate(`log4cats-natchez-backend`)
+lazy val root = tlCrossRootProject.aggregate(
+  `log4cats-natchez-backend`,
+  `log4cats-natchez-trace-context`,
+)
 
 lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, NativePlatform)
   .crossType(CrossType.Full)
@@ -59,4 +62,22 @@ lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, Nati
       "io.opentelemetry.semconv" % "opentelemetry-semconv" % "1.37.0" % Test,
       "io.opentelemetry.semconv" % "opentelemetry-semconv-incubating" % "1.34.0-alpha" % Test,
     )
+  )
+
+lazy val `log4cats-natchez-trace-context` = crossProject(JVMPlatform, JSPlatform)
+  .crossType(CrossType.Full)
+  .in(file("trace-context"))
+  .settings(
+    name := "log4cats-natchez-trace-context",
+    libraryDependencies ++= Seq(
+      "org.typelevel" %%% "log4cats-core" % "2.7.1-52-d1e4e6a-SNAPSHOT",
+      "org.tpolecat" %%% "natchez-core" % "0.3.8",
+      "org.scalameta" %%% "munit" % "1.2.1" % Test,
+      "org.typelevel" %%% "munit-cats-effect" % "2.1.0" % Test,
+      "org.scalameta" %%% "munit-scalacheck" % "1.2.0" % Test,
+      "org.typelevel" %%% "log4cats-testing" % "2.7.1-52-d1e4e6a-SNAPSHOT" % Test,
+      "org.typelevel" %%% "scalacheck-effect" % "2.1.0-RC1" % Test,
+      "org.typelevel" %%% "scalacheck-effect-munit" % "2.1.0-RC1" % Test,
+    ),
+    tlVersionIntroduced := Map("3" -> "0.2.1", "2.13" -> "0.2.1", "2.12" -> "0.2.1"),
   )
