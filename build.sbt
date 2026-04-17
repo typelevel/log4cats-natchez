@@ -47,7 +47,7 @@ lazy val `log4cats-natchez-backend` = crossProject(JVMPlatform, JSPlatform, Nati
   )
   .jvmSettings(
     libraryDependencies ++= Seq(
-      "org.tpolecat" %%% "natchez-opentelemetry" % "0.3.9" % Test,
+      "org.tpolecat" %%% "natchez-opentelemetry" % "0.3.10" % Test,
       "io.opentelemetry" % "opentelemetry-api" % "1.57.0" % Test,
       "io.opentelemetry" % "opentelemetry-context" % "1.57.0" % Test,
       "io.opentelemetry" % "opentelemetry-exporter-otlp" % "1.57.0" % Test,
